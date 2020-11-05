@@ -1,15 +1,71 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Bookers</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="ja">
 
+	<head>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Bookers</title>
+		<link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+	</head>
 
   <body>
+
+
+        <div class="container relative">
+            <ul class="list-inline" style="background-color: black;" align="right">
+              <h2 class="text-white" align="left">Bookers</h2>
+              <% if user_signed_in? %>
+	      	    	<li class="">
+	      	    	  <span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to "Home", user_path(current_user.id) %>
+	      	    	</li>
+	      	    	<li class="">
+	      	    	  <span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= link_to 'Users', users_path %>
+	      	    	</li>
+	      	    	<li class="">
+	      	    	  <span class="glyphicon glyphicon-book" aria-hidden="true"></span><%= link_to 'Books', user_books_path(current_user.id) %>
+	      	    	</li>
+	      	    	<li class="">
+	      	    	  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><%= link_to 'logout', destroy_user_session_path, method: :delete %>
+	      	    	</li>
+	      	    <% else %>
+	      	    	<li class="">
+                  <span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to "Home", root_path %>
+                </li>
+                <li class="">
+                  <span class="glyphicon glyphicon-link" aria-hidden="true"></span><%= link_to "About", root_path %>
+                </li>
+                <li class="">
+                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span><%= link_to "sign up", new_user_registration_path %>
+                </li>
+                	<li class="">
+	      	    	  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span><%= link_to 'login', new_user_session_path %>
+	      	    	</li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
     <%= yield %>
+
+     <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3"></div>
+          <div class="col-xs-7">
+              <br>
+              <p class="no-margin" style="font-size: 11px;" align="right">
+              CopyRight Infratop.inc
+              </p>
+              <br>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
