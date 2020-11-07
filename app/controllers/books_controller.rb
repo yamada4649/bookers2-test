@@ -4,6 +4,18 @@ class BooksController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @books = @user.books.reverse_order
+  end
+
+  def create
+    @book = Book.new(book_params)
+    if @book.save
+      flash[:notice] = "You have created book successfully."
+      redirect_to user_book_path
+    else
+      render 'book#create'
+    end
   end
 
   def edit
@@ -15,4 +27,12 @@ class BooksController < ApplicationController
       render :edit
     end
   end
+
+
+  protected
+  def book_params
+    params.require(:book).permit(:title, :body)
+  end
+
+
 end

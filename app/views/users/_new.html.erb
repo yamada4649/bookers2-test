@@ -1,10 +1,29 @@
 <div class="container-fluid">
-	<div class="row sampleRowA">
+	<div class="row">
 		<div class="col-xs-2"></div>
 		<div class="col-xs-2">
 			<div class="row Userinfo">
 				<div class="col-xs-12">
+				  <%= form_with model:@user, local:true do |f| %>
 				  <h1>User info</h1>
+				  <table border-top>
+				  	<tr>
+				  		<td>name</td>
+				  		<td><%= @user.name %></td>
+				  	</tr>
+				  	<tr>
+				  		<td>introduction</td>
+				  		<td><%= @user.introduction(current_user) %></td>
+				  	</tr>
+				  </table>
+				  <div class="col-xs-12 btn btn-default"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></div>
+				  <h1>New book</h1>
+				  	<label for="title">Title</label>
+						<%= f.text_field :title, class:"form-control", placeholder: "タイトル" %>
+					 	<label for="option">Option</label>
+					 	<%= f.text_area :body, class:"form-control", placeholder: "意見" %>
+					 	<%= f.submit "送信", class:"btn btn-primary btn-block btn-base-1 mt-20" %>
+				  <% end %>
 				</div>
 			</div>
 		</div>

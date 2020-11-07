@@ -9,9 +9,9 @@
 <p>you can share and exchange your opinions, impressons, and emotions</p>
 <p>about various books!</p>
 
-<a class="btn btn-info col-xs-10 col-xs-offset-1 sign-in" href=users/sign_in>Log in</a>
+<button class="btn btn-info col-xs-10 col-xs-offset-1"><%= link_to 'Log in', new_user_session_path %></button>
 
-<a class="btn btn-success col-xs-10 col-xs-offset-1 text-muted sign-up" href=users/sign_up>Sign up</a>
+<button class="btn btn-success col-xs-10 col-xs-offset-1 text-muted"><%= link_to 'Sign up', new_user_registration_path %></button>
 
 
      </div>

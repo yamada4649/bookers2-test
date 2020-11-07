@@ -1,8 +1,14 @@
 <%= render 'users/new', users: @users %>
 
-        <% if from redirect_to %>
-            <p>Welcome! You have signed up successfully.</p>
+    <%= form_with model:@user, local:true do |f| %>
+        <%= notice %>
+        <% if @user.errors.any? %>
+          <p>error!!</p>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
         <% end %>
+
 
         <h1>Books</h1>
         <table>
@@ -11,12 +17,15 @@
                 <th>Title</th>
                 <th>Opinion</th>
             </tr>
-            <tr>
-                <td>user_image</td>
-                <td>book_title</td>
-                <td>book_body</td>
-            </tr>
+            <% @user.each do |user| %>
+                <tr>
+                    <td>user.profile_image</td>
+                    <td>user.book_title</td>
+                    <td>user.book_body</td>
+                </tr>
+            <% end %>
         </table>
+    <% end %>
 
 		</div>
 	</div>
