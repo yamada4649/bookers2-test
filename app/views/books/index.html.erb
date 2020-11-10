@@ -1,20 +1,31 @@
-<%= render 'users/new', users: @users %>
+<%= render 'users/new', user: @user, book: @book %>
+
+    <%= notice %>
+    <% if @book.errors.any? %>
+      <p>error!!</p>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    <% end %>
+
     <h1>Books</h1>
-        <table border-bottom>
-            <tr>
+        <table class="table border-bottom">
+            <thead>
                 <th></th>
                 <th>Title</th>
                 <th>Opinion</th>
-            </tr>
-            <% @users.each do |user| %>
-                <tr>
-                    <td><%= user.profile_image %></td>
-                    <td><%= user.book_title %></td>
-                    <td><%= user.book_body %></td>
-                </tr>
+            </thead>
+            <% @books.each do |book| %>
+                <tbody>
+                    <td><%= link_to user_path(book.user.id), class: 'link' do %>
+                            <%= attachment_image_tag book.user, :profile_image, size: '40x40', format: 'jpeg', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
+                        <% end %>
+                    </td>
+                    <td><%= link_to book.title, book_path(book.id) %></td>
+                    <td><%= book.body %></td>
+                </tbody>
             <% end %>
         </table>
-
 
 		</div>
 	</div>

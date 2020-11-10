@@ -2,22 +2,44 @@
 	<div class="row">
 		<div class="col-xs-2"></div>
 		<div class="col-xs-2">
-			<div class="row Userinfo">
-				<div class="col-xs-12">
-				  <%= form_with model:@user, local:true do |f| %>
-					<h1>User info</h1>
-					<span>name</span>
-					<span><%= f.text_field :@user.name %></span>
-					<p>image</p>
-					<div class="user-edit-image">
-        	        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
-    	      		</div>
-					<label for="user-introduction">introduction</label>
-				  	<%= f.text_area :introduction, class:"form-control" %>
-				  	<%= f.submit "Update User", class:"btn btn-default btn-block btn-base-1 mt-20" %>
-				  <% end %>
+			        <% if @user.errors.any? %>
+          				<p>error!!</p>
+          				<% @user.errors.full_messages.each do |message| %>
+            				<li><%= message %></li>
+          				<% end %>
+        			<% end %>
+
+			<%= form_with model:@user, local:true do |f| %>
+				<div class="row Userinfo">
+					<div class="col-xs-12">
+						<h1>User info</h1>
+					</div>
 				</div>
-			</div>
+				<div class="row User-name">
+					<div class="col-xs-12">
+						<span>name</span>
+						<span><%= f.text_field :name %></span>
+					</div>
+				</div>
+				<div class="row User-image">
+					<div class="col-xs-12">
+						<p>image</p>
+        	     	   <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
+        	    	</div>
+				</div>
+				<div class="row User-image-form">
+					<div class="col-xs-12">
+						<%= f.attachment_field :profile_image, placeholder: "画像", class: "user-edit-form" %>
+					</div>
+				</div>
+				<div class="row User-introduction">
+					<div class="col-xs-12">
+						<p for="user-introduction">introduction</p>
+					  	<%= f.text_area :introduction, class:"form-control" %>
+					  	<%= f.submit "Update User", class:"btn btn-default" %>
+					</div>
+				</div>
+			<% end %>
 		</div>
   </div>
 </div>

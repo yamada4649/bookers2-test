@@ -3,28 +3,39 @@
 		<div class="col-xs-2"></div>
 		<div class="col-xs-2">
 			<div class="row Userinfo">
-				<div class="col-xs-12">
-				  <%= form_with model:@user, local:true do |f| %>
-				  <h1>User info</h1>
-				  <table border-top>
-				  	<tr>
+				<h1>User info</h1>
+			</div>
+			<div class="row User-image">
+				 <%= attachment_image_tag user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
+			</div>
+			<div class="row table">
+				 <table class="table border-top">
+				 	<tr>
 				  		<td>name</td>
-				  		<td><%= @user.name %></td>
+				  		<td><%= user.name %></td>
 				  	</tr>
 				  	<tr>
 				  		<td>introduction</td>
-				  		<td><%= @user.introduction(current_user) %></td>
+				  		<td><%= user.introduction %></td>
 				  	</tr>
 				  </table>
-				  <div class="col-xs-12 btn btn-default"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></div>
-				  <h1>New book</h1>
+			</div>
+			<div class="row">
+				  <div class="col-xs-12 btn btn-default">
+				  	<%= link_to "", edit_user_path(current_user.id), class: "glyphicon glyphicon-wrench", 'aria-hidden' => true %>
+				  </div>
+			</div>
+			<div class="row New-book">
+				<h1>New book</h1>
+			</div>
+			<div class="row form">
+				  <%= form_with model:book, local:true do |f| %>
 				  	<label for="title">Title</label>
 						<%= f.text_field :title, class:"form-control", placeholder: "タイトル" %>
 					 	<label for="option">Option</label>
 					 	<%= f.text_area :body, class:"form-control", placeholder: "意見" %>
-					 	<%= f.submit "送信", class:"btn btn-primary btn-block btn-base-1 mt-20" %>
+					 	<%= f.submit "Create Book", class:"btn btn-primary btn-block btn-base-1 mt-20" %>
 				  <% end %>
-				</div>
 			</div>
 		</div>
 		<div class="col-xs-6">
