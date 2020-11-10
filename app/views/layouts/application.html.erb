@@ -17,9 +17,9 @@
   <body>
 
 
-        <div class="container relative">
+        <div class="container">
             <ul class="list-inline" style="background-color: black;" align="right">
-              <h2 class="text-white" align="left">Bookers</h2>
+              <h2 class="text-light" align="left">Bookers</h2>
               <% if user_signed_in? %>
 	      	    	<li class="">
 	      	    	  <span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to "Home", user_path(current_user.id) %>
