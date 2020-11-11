@@ -14,60 +14,58 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 	</head>
 
-  <body>
-
-
-        <div class="container">
-            <ul class="list-inline" style="background-color: black;" align="right">
-              <h2 class="text-light" align="left">Bookers</h2>
-              <% if user_signed_in? %>
-	      	    	<li class="">
-	      	    	  <span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to "Home", user_path(current_user.id) %>
-	      	    	</li>
-	      	    	<li class="">
-	      	    	  <span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= link_to 'Users', users_path %>
-	      	    	</li>
-	      	    	<li class="">
-	      	    	  <span class="glyphicon glyphicon-book" aria-hidden="true"></span><%= link_to 'Books', books_path %>
-	      	    	</li>
-	      	    	<li class="">
-	      	    	  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><%= link_to 'logout', destroy_user_session_path, method: :delete %>
-	      	    	</li>
-	      	    <% else %>
-	      	    	<li class="">
-                  <span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to "Home", root_path %>
-                </li>
-                <li class="">
-                  <span class="glyphicon glyphicon-link" aria-hidden="true"></span><%= link_to "About", home_about_path %>
-                </li>
-                <li class="">
-                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span><%= link_to "sign up", new_user_registration_path %>
-                </li>
-                	<li class="">
-	      	    	  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span><%= link_to 'login', new_user_session_path %>
-	      	    	</li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
+  <header class="navbar navbar-inverse">
+    <div class="container">
+      <nav class="nav navbar-nav navbar-left">Bookers</nav>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+	   	  	  <li class="">
+	   	  	    <%= link_to user_path(current_user.id), class: 'link' do %><span class="glyphicon glyphicon-home" aria-hidden="true"> Home</span><% end %>
+	   	  	  </li>
+	   	  	  <li class="">
+	  	  	    <%= link_to users_path, class: 'link' do %><span class="glyphicon glyphicon-user" aria-hidden="true"> Users</span><% end %>
+	   	  	  </li>
+	   	  	  <li class="">
+	   	  	    <%= link_to books_path, class: 'link' do %><span class="glyphicon glyphicon-book" aria-hidden="true"> Books</span><% end %>
+	   	  	  </li>
+	   	  	  <li class="">
+	   	  	    <%= link_to destroy_user_session_path, method: :delete, class: 'link' do %><span class="glyphicon glyphicon-log-out" aria-hidden="true"> logout</span><% end %>
+	   	  	  </li>
+	   	    <% else %>
+	   	    	<li class="">
+	   	    	  <%= link_to root_path, class: 'link' do %><span class="glyphicon glyphicon-home" aria-hidden="true"> Home</span><% end %>
+            </li>
+            <li class="">
+              <%= link_to home_about_path, class: 'link' do %><span class="glyphicon glyphicon-link" aria-hidden="true"> About</span><% end %>
+            </li>
+            <li class="">
+              <%= link_to new_user_registration_path, class: 'link' do %><span class="glyphicon glyphicon-edit" aria-hidden="true"> sign up</span><% end %>
+            </li>
+          	<li class="">
+          	  <%= link_to new_user_session_path, class: 'link' do %><span class="glyphicon glyphicon-log-in" aria-hidden="true"> login</span><% end %>
+	   	  	  </li>
+          <% end %>
+        </ul>
       </nav>
     </div>
+  </header>
 
     <%= yield %>
 
-     <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-3"></div>
-          <div class="col-xs-7">
-              <br>
-              <p class="no-margin" style="font-size: 11px;" align="right">
-              CopyRight Infratop.inc
-              </p>
-              <br>
-          </div>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-7">
+          <br>
+            <p class="no-margin" style="font-size: 11px;" align="right">
+            CopyRight Infratop.inc
+            </p>
+          <br>
         </div>
       </div>
-    </footer>
-  </body>
+    </div>
+  </footer>
+
 </html>
