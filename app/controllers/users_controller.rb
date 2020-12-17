@@ -10,8 +10,6 @@ class UsersController < ApplicationController
 
   def top
     @user = User.all
-  end
-
   def show
     @user = current_user
     @user_detail = User.find(params[:id])
