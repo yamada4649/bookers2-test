@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def top
+    @uer = User.all
   end
 
   def show
