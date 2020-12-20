@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_16_091941) do
+ActiveRecord::Schema.define(version: 2020_12_20_113823) do
 
   create_table "admins", force: :cascade do |t|
     t.string "title"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 2020_12_16_091941) do
 
   create_table "customers", force: :cascade do |t|
     t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "imagemodel2s", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
