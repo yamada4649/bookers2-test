@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_20_113823) do
+ActiveRecord::Schema.define(version: 2020_12_20_114530) do
 
   create_table "admins", force: :cascade do |t|
     t.string "title"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_113823) do
 
   create_table "imagemodel2s", force: :cascade do |t|
     t.string "title"
-    t.string "body"
+    t.string "boddy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
