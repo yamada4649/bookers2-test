@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_12_20_114530) do
 
   create_table "imagemodel2s", force: :cascade do |t|
     t.string "title"
-    t.string "boddy"
+    t.string "boddyyy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
