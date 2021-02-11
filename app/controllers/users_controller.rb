@@ -6,7 +6,6 @@ class UsersController < ApplicationController
     @users = User.all
     @user = current_user
     @book = Book.new
-    @book = Book.all
   end
 
   def top
