@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def top
     @user = User.all
+    @uuuuu = User.find(params[:id])
   def show
     @user = current_user
     @user_detail = User.find(params[:id])
