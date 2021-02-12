@@ -7,11 +7,10 @@ class UsersController < ApplicationController
     @user = current_user
     @book = Book.new
     @book = Book.all
+  end
 
   def top
     @user = User.all
-    @book = Book.find(params[:id])
-    @bookssss = Book.new
   def show
     @user = current_user
     @user_detail = User.find(params[:id])
