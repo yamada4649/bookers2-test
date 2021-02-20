@@ -10,4 +10,7 @@ class BookCommentsController < ApplicationController
 	def index
 		
 	end
+	def sui
+		@sui = 2
+	end
 end
