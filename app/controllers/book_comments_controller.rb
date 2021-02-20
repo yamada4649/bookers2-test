@@ -7,4 +7,7 @@ class BookCommentsController < ApplicationController
 		@sori = 2
 		
 	end
+	def index
+		
+	end
 end
