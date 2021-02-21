@@ -5,12 +5,9 @@ class BookCommentsController < ApplicationController
 	end
 	def show
 		@sori = 2
-		
-	end
-	def index
-		
 	end
 	def sui
-		@sui = 2
+		@iikannzi = 4
 	end
+
 end
