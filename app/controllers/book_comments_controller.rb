@@ -9,5 +9,8 @@ class BookCommentsController < ApplicationController
 	def sui
 		@iikannzi = 4
 	end
+	def kai
+		@aaa = "ssss"
+	end
 
 end
