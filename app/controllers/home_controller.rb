@@ -23,7 +23,6 @@ class HomeController < ApplicationController
   end
   def ttttttttttt
     @book = Book.all
-    
   end
   def kekeke
     @user = 1
