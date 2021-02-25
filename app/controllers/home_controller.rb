@@ -6,4 +6,13 @@ class HomeController < ApplicationController
   end
   def kokuyo
   end
+  def koko
+    
+  end
+  def admin
+    
+  end
+  def adminnn
+    
+  end
 end
