@@ -4,4 +4,10 @@ class HomeController < ApplicationController
   def home
   	
   end
+  def kokuyo
+  	
+  end
+  def kaka
+  	
+  end
 end
