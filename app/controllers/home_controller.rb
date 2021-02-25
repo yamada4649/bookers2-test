@@ -6,4 +6,7 @@ class HomeController < ApplicationController
   end
   def kokuyo
   end
+  def koko
+    
+  end
 end
