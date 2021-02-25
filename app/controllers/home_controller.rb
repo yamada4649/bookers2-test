@@ -21,4 +21,14 @@ class HomeController < ApplicationController
   def test2
     
   end
+  def ttttttttttt
+    @book = Book.all
+  end
+  def kekeke
+    @user = 1
+  end
+  def oooooooo
+    @user = "iikannzi"
+    @book = 2
+  end
 end
