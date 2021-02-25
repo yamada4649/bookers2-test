@@ -28,4 +28,8 @@ class HomeController < ApplicationController
   def kekeke
     @user = 1
   end
+  def oooooooo
+    @user = "iikannzi"
+    @book = 2
+  end
 end
