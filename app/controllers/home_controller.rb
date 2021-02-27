@@ -31,4 +31,7 @@ class HomeController < ApplicationController
     @user = "iikannzi"
     @book = 2
   end
+  def eee
+    
+  end
 end
