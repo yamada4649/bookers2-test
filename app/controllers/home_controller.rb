@@ -24,4 +24,7 @@ class HomeController < ApplicationController
   def cococo
     
   end
+  def eee
+    
+  end
 end
