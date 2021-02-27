@@ -9,4 +9,22 @@ class HomeController < ApplicationController
   def koko
     
   end
+  def admin
+    
+  end
+  def adminnn
+    
+  end
+  def test
+    
+  end
+  def test2
+    
+  end
+  def cococo
+    
+  end
+  def eee
+    
+  end
 end
